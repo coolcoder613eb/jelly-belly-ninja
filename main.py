@@ -30,7 +30,7 @@ lives_icon = pygame.image.load('images/white_lives.png')
 def generate_random_fruits(fruit):
     fruit_path = "images/" + fruit + ".png"
     data[fruit] = {
-        'img': pygame.image.load(fruit_path),
+        'img': pygame.transform.scale(pygame.image.load(fruit_path),(64,64)),
         'x': random.randint(100, 500),
         'y': 800,
         'speed_x': random.randint(-10, 10),
@@ -155,7 +155,7 @@ while game_running:
                 else:
                     half_fruit_path = "images/" + "half_" + key + ".png"
 
-                value['img'] = pygame.image.load(half_fruit_path)
+                value['img'] = pygame.transform.scale(pygame.image.load(half_fruit_path),(64,64))
                 value['speed_x'] += 10
                 if key != 'bomb':
                     score += 1
